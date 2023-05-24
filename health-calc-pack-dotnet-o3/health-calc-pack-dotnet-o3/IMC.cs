@@ -4,9 +4,14 @@ namespace health_calc_pack_dotnet_pack
 {
     public class IMC : IIMC
     {
-        public double Calc(double Height, double Weight)
+
+        private const double ALTURA_MAXIMA_PERMITIDA = 3.0;
+        private const double PESO_MAXIMO_PERMITIDO = 300.0;
+
+        public double Calcular(double altura, double peso)
         {
-            return Math.Round(Weight / (Height * Height), 2);
+            double resultado = peso / (altura * altura);
+            return Math.Round(resultado, 2);
         }
 
         /*
@@ -18,25 +23,21 @@ namespace health_calc_pack_dotnet_pack
          MAIOR QUE 40,0	        OBESIDADE GRAVE	    III
          */
 
-        public string GetIMCCategory(double IMC)
+        public string GetGategoriaIMC(double IMC)
         {
-            var Result = string.Empty;
-
             if (IMC < 18.5)
-                Result = "MAGREZA";
-            else if (IMC >= 18.5 && IMC <= 25)
-                Result = "NORMAL";
-            else if (IMC >= 18.5 && IMC <= 30)
-                Result = "SOBREPESO";
-            else if (IMC >= 18.5 && IMC <= 40)
-                Result = "OBSIDADE";
-            else if (IMC >= 40)
-                Result = "OBSIDADE GRAVE";
-
-            return Result;
+                return IMCConstants.MAGREZA;
+            else if (IMC < 25)
+                return IMCConstants.NORMAL;
+            else if (IMC < 30)
+                return IMCConstants.SOBREPESO;
+            else if (IMC < 40)
+                return IMCConstants.OBESIDADE;
+            else
+                return IMCConstants.OBESIDADE_GRAVE;
         }
 
-        public bool IsValidData(double Height, double Weight)
+        public bool EhDadoValido(double Height, double Weight)
         {
             return (Height < 3.0 && Weight <= 300);
         }
