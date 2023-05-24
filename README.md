@@ -20,7 +20,7 @@ health-calc-pack-dotnet oferece cálculos precisos para os requisitos de macronu
 Este pacote foi criado para fins educacionais.
 
 #### Alunos:
-Douglas Rocha
-Janaína Dutra Caçaca
-Nilton Cesar Fernandes da Silva Junior
-Rafael Oliveira Dias
+Douglas Rocha, 
+Janaína Dutra Caçaca,
+Nilton Cesar Fernandes da Silva Junior,
+Rafael Oliveira Dias.
